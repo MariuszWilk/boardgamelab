@@ -1,0 +1,26 @@
+
+<div class="row" style="margin-top:30px">
+
+    <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="game in games">
+
+        <div class="thumbnail" style="box-shadow:2px 2px 3px #888888">
+
+            <img ng-src="{{ game.thumbnail }}" class="img-responsive img-rounded">
+            <div class="caption">
+              <div style="height:110px">
+                <h3>{{ game.name }}</h3>
+                <p>{{ game.subtitle }}</p>
+              </div>
+              <p><a href="#/{{$index}}" class="btn btn-success" role="button">Review</a></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+

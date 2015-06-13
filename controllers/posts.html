@@ -1,0 +1,58 @@
+
+<div class="row" style="margin-top:15px">
+
+	<div class="col-md-8 col-sm-12">
+		<!--<div class="jumbotron" style="padding:30px">-->
+			<div class"container" style="max-width:750px; margin:0 auto; margin-bottom:50px; border:2px solid #772953; box-shadow:0px 3px 7px #555555">
+			    <carousel interval="4000" id="gamesCarousel">
+
+					<slide ng-repeat="landscape in landscapes">
+						<a href="#/{{$index}}"><img ng-src="{{ landscape }}" class="img-responsive" style="width:750px"></a> <!-- rescales to all screens -->
+					</slide>
+
+				</carousel>
+			</div>
+		<!--</div>-->
+	</div>
+
+	<div class='col-md-4 hidden-xs hidden-sm'>
+		<img ng-src="images/bglab.png" style="width:250px; margin:0 auto; margin-top:0%" class="img-responsive">
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">  <!-- uncolored large box with defoult style -->
+
+			<div class="panel-body" ng-repeat="postNum in postDisplay">  <!-- gives indebtation for inner content -->
+
+				<div class="page-header">
+					<h2 style="color:#5E2750; margin-bottom:0px">{{ posts[postNum].title }}</h2>
+				</div>
+
+				<img class="featuredImg" ng-src="{{posts[postNum].image}}" width="12%" style="float:left; margin-right:20px; padding-bottom:10px; margin-bottom:0;"> <!-- 100% of the parent -->
+				<p>{{ posts[postNum].content }}</p>
+
+			</div>
+
+		</div>
+	</div>
+	<div class='col-md-4'>
+		<div class="list-group" > <!-- box devided into rect boxes -->
+			<a class="list-group-item" ng-repeat="post in posts.slice().reverse()" ng-click="insertPost(post.id)" ng-class="{active: post.id == postDisplay[0]}">  <!-- ng-class sets first attribute as class if condition is true -->
+				<span class="badge" style="background:white; color:#888888">{{ post.date }}</span>
+				<h4 class="list-group-item-heading">{{ post.title }} </h4><!-- condenses content -->
+				<p class="list-group-item-text">{{ post.content.substr(0, post.content.indexOf('.')) }}..</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<style>
+#gamesCarousel {
+    cursor: pointer;
+}
+</style>
+
+

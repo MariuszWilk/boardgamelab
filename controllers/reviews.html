@@ -1,0 +1,71 @@
+
+<div class="row" style="margin-top:30px">
+
+	<div class="col-lg-8">
+		<div class="panel panel-default">  <!-- uncolored large box with defoult style -->
+
+			<div class="panel-body">  <!-- gives indebtation for inner content -->
+
+				<div class="page-header">
+					<h2 style="color:#5E2750">{{games[ident].name}}</h2>
+			    </div>
+			    
+			    <img class="img-responsive img-rounded" src="{{ landscapes[ident] }}" style="width:100%; margin-bottom: 20px"> 
+
+			    <table class="table table-condensed" style="float:left; margin-right:30px; width:250px; margin-bottom: 5px">
+			    	<tr>
+			    		<th class="active">Designers</th>
+			    		<td>{{game_info.designers.join(', ')}}</td>   				    
+				    </tr>
+				    	<th class="active">Published</th>
+				    	<td>{{game_info.year}}</td>
+				    <tr>
+				    	<th class="active">Players</th>
+				    	<td>{{game_info.players}}</td>
+				    </tr>
+				    	<th class="active">Playing time</th>
+				    	<td>{{game_info.time}}</td>
+			    	<tr>
+			    		<th class="active">BGG ranking</th>
+			    		<td>{{game_info.rank}}</td>
+			    	</tr>
+			    </table>
+
+
+			    <p>{{games[ident].description}} </p>
+			    <h4 class="inner_title">COMPONENTS</h4>
+			    <p>{{games[ident].components}} </p>
+			    <h4 class="inner_title">GAMEPLAY</h4>
+			    <p>{{games[ident].gameplay}} </p>
+			    <h4 class="inner_title">SUMMARY</h4>
+			    <p>{{games[ident].summary}} </p>
+			</div>
+
+		</div>
+	</div>
+
+	<div class='col-md-4'>
+		<div class="list-group"> 
+			<a class="list-group-item" ng-repeat="game in games" ng-href="#/{{$index}}" ng-class="{active: ident == games.indexOf(game)}">  
+				<h4 class="list-group-item-heading">{{ game.name }}</h4> 
+				<p class="list-group-item-text">{{ game.subtitle }}</p>
+			</a>
+		</div>
+	</div>
+
+</div>
+
+<style>
+
+th {
+	width:120px; 
+	font:1em "Courier New", 'sans-serif';
+    font-weight: 600;
+}
+
+.inner_title {
+	margin-top: 25px;
+	color: #5E2750;
+}
+
+</style>

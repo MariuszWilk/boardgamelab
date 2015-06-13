@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Board Game Lab</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+</head>
+
+
+<body ng-app="BGSite">
+
+	<div class="navbar navbar-inverse navbar-static-top" ng-controller="HeaderController">  <!--  inverse makes it black / also fixed-top  -->
+		<div class="container">  <!-- gives more padding -->
+		  	<div class="navbar-header"> <!-- wraps around brand and button -->
+
+				<a href="#/" class="navbar-brand"> BOARD GAME LAB </a>  <!-- title -->
+
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">  <!-- toggling button-icon for mobile -->
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+			</div>
+
+			<div class="collapse navbar-collapse navHeaderCollapse">  <!-- collapses on mobile / for reference -->
+				<ul class="nav navbar-nav navbar-right">  <!-- vertical styling / aligned to the right -->
+
+					<li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
+					<li ng-class="{ active: isActive('/games')}"><a href="#/games">Games</a></li>
+					<li ng-class="{ active: isActive('/contact')}"><a href="#/contact">Contact</a></li> 
+
+				</ul>
+			</div>
+
+	 	</div>
+	</div>
+
+	<div class="container"> <!-- style="width:640px; padding-bottom:20px" -->
+		<div ng-view></div>
+	</div>
+
+	<div class="navbar navbar-fixed-bottom" style="background:#F1E9ED"> <!-- footer -->
+		<div class="container">
+			<p class="navbar-text pull-right" style="color:#772953">Created by Mariusz Wilk (2015)</p> <!-- centralizes vertically -->
+	    </div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	<!-- bootstrap-->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+
+    <!-- Modules -->
+    <script src="app.js"></script>
+
+    <!-- Controllers -->
+    <script src="controllers/posts.js"></script>
+    <script src="controllers/games.js"></script>
+    <script src="controllers/contact.js"></script>
+
+    <!-- Services -->
+    <script src="js/bggapi.js"></script>
+
+    <style>
+	.list-group-item {
+	    cursor: pointer;
+	}
+	</style>
+
+</body>
+
+
+</html>
